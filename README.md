@@ -98,5 +98,7 @@ static 밑에 있는 index.html을 못 읽는 것을 확인할 수 있습니다 
 
 <br/>
 ### 이런 Config 관련 파일을 추가하기 싫다면 thymeleaf 의존성을 추가하면 됩니다.  <br/><br/>
-![image](https://github.com/user-attachments/assets/06a361ab-174b-4592-857b-f167a44b7d62)
+
+![image](https://github.com/user-attachments/assets/10845eea-c504-4e45-b926-401305611f51)
+
 
