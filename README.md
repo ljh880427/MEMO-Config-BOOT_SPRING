@@ -76,11 +76,27 @@ public class MvcConfiguration implements WebMvcConfigurer {
     }
 }
 ```
+
+### 설명 내용 <br/>
+### Spring Boot는 기본으로 바라보는 정적 자원의 위치가 있습니다. <br/>
++ classpath:/META-INF/resources/ 
++ classpath:/resources/
++ classpath:/static/
++ classpath:/public/
+이렇게 4개가 있습니다. <br/>
+그래서 static 폴더 안에 있는 index.html은 읽을 수 있었지만, templates 폴더 안에 있는 home.html은 읽지 못했습니다. <br/>
+
+MvcConfiguration 파일을 통해서 addResourceHandlers를 오버라이드 하면 templates 폴더도 읽을 수 있게 됩니다. <br/>
+
+하지만 메서드를 오버라이드 하게 되면 개발자가 추가한 부분만 읽을 수 있게 됩니다. <br/>
 ```
-설명 내용
-Spring Boot는 기본으로 바라보는 정적 자원의 위치가 있습니다.
-classpath:/META-INF/resources/
-classpath:/resources/
-classpath:/static/
-classpath:/public/
+.addResourceLocations("classpath:/templates/", "classpath:/static/")
 ```
+저는 이렇게 2개를 추가했습니다. <br/>
+여기서 classpath:/static/을 삭제하고 스프링을 실행하면  <br/>
+static 밑에 있는 index.html을 못 읽는 것을 확인할 수 있습니다 <br/>
+
+<br/>
+### 이런 Config 관련 파일을 추가하기 싫다면 thymeleaf 의존성을 추가하면 됩니다.  <br/><br/>
+![image](https://github.com/user-attachments/assets/06a361ab-174b-4592-857b-f167a44b7d62)
+
